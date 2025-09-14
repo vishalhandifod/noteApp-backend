@@ -7,6 +7,8 @@ const userRoutes = require('./routes/userRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 const tenantRoutes = require('./routes/tenantRoutes')
 const cookieParser = require('cookie-parser');  
+const serverless = require('serverless-http');
+const connectToDatabase = require('./db/db');
 const app = express();
 app.use(cors({
 origin: ['http://localhost:5173', 'https://note-app-frontend-woad.vercel.app'],
@@ -24,15 +26,18 @@ app.use('/tenants', tenantRoutes);
 app.use('/notes', noteRoutes);
 
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// mongoose.connect(process.env.MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }).then(() => console.log('MongoDB connected'))
+//   .catch(err => console.error('MongoDB connection error:', err));
 
 // app.listen(PORT, () => {
 //   console.log(`Server running on port ${PORT}`);
 // });
-
-module.exports = app;
-module.exports.handler = serverless(app);
+module.exports.handler = async (req, res) => {
+  await connectToDatabase(process.env.MONGODB_URI);
+  return serverless(app)(req, res);
+};
+// module.exports = app;
+// module.exports.handler = serverless(app);
