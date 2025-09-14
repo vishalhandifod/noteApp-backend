@@ -9,7 +9,7 @@ const tenantRoutes = require('./routes/tenantRoutes')
 const cookieParser = require('cookie-parser');  
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173', // or your React frontend URL
+origin: ['http://localhost:5173', 'https://note-app-frontend-woad.vercel.app'],
   credentials: true,                // if you use cookies for auth
 }));
 
