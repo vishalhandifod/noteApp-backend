@@ -26,18 +26,18 @@ app.use('/tenants', tenantRoutes);
 app.use('/notes', noteRoutes);
 
 
-// mongoose.connect(process.env.MONGODB_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }).then(() => console.log('MongoDB connected'))
-//   .catch(err => console.error('MongoDB connection error:', err));
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
-module.exports.handler = async (req, res) => {
-  await connectToDatabase(process.env.MONGODB_URI);
-  return serverless(app)(req, res);
-};
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+// module.exports.handler = async (req, res) => {
+//   await connectToDatabase(process.env.MONGODB_URI);
+//   return serverless(app)(req, res);
+// };
 // module.exports = app;
 // module.exports.handler = serverless(app);
