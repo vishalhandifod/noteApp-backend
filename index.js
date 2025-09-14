@@ -8,7 +8,6 @@ const noteRoutes = require('./routes/noteRoutes');
 const tenantRoutes = require('./routes/tenantRoutes')
 const cookieParser = require('cookie-parser');  
 const serverless = require('serverless-http');
-const connectToDatabase = require('./db/db');
 const app = express();
 app.use(cors({
 origin: ['http://localhost:5173', 'https://note-app-frontend-woad.vercel.app'],
