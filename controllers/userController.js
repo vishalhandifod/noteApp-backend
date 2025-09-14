@@ -9,9 +9,9 @@ exports.inviteUser = async (req, res) => {
     if (!email || !role) {
       return res.status(400).json({ message: 'Email and role are required.' });
     }
-    if (role !== 'member') {
-      return res.status(403).json({ message: 'Only member role is allowed for invites.' });
-    }
+    // if (role !== 'User') {
+    //   return res.status(403).json({ message: 'Only member role is allowed for invites.' });
+    // }
 
     const adminTenantId = req.user.tenantId;
     const adminEmail = req.user.email;
