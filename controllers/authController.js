@@ -64,12 +64,13 @@ const login = async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '8h' });
 
     // Set token in httpOnly cookie, expires in 8 hours
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production', // true in production
-      maxAge: 8 * 60 * 60 * 1000, // 8 hours in milliseconds
-      sameSite: 'lax',
-    });
+res.cookie('token', token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production', // true only on HTTPS
+  maxAge: 8 * 60 * 60 * 1000,
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+});
+
 
     // Optionally return success message or user info
     res.json({ message: 'Login successful' });
