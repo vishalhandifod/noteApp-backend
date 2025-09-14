@@ -66,9 +66,10 @@ const login = async (req, res) => {
     // Set token in httpOnly cookie, expires in 8 hours
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production', // true in production
+      // secure: process.env.NODE_ENV === 'production', // true in production
+      secure: true, // true in production
       maxAge: 8 * 60 * 60 * 1000, // 8 hours in milliseconds
-      sameSite: 'lax',
+      sameSite: 'none',
     });
 
     // Optionally return success message or user info
