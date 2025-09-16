@@ -87,7 +87,7 @@ const logout = (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       expires: new Date(0),
-      sameSite: 'lax',
+      sameSite: 'none',
     });
 
     // Send success response
