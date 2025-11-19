@@ -11,7 +11,7 @@ const serverless = require('serverless-http');
 const app = express();
 app.use(cors({
 origin: ['http://localhost:5173', 'https://note-app-frontend-woad.vercel.app'],
-  credentials: true,                // if you use cookies for auth
+  credentials: true,                // if you use cookies for auth dsfghdsjghdjksghvkjsdfghjkshgjk
 }));
 
 app.use(cookieParser());
