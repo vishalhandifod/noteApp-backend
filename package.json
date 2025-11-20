@@ -34,6 +34,7 @@
     "nodemailer": "^7.0.6",
     "nodemon": "^3.1.10",
     "serverless-http": "^4.0.0",
+    "test": "^3.3.0",
     "test-exclude": "^7.0.1"
   }
 }
