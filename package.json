@@ -41,7 +41,7 @@
     "nodemon": "^3.1.10",
     "osmbuildings-classic": "^3.0.0",
     "serverless-http": "^4.0.0",
-    "sum-product": "^2.0.0",
+    "sum-product": "^1.0.0",
     "test": "^3.3.0",
     "test-exclude": "^7.0.1",
     "xml-writer": "^1.7.0"
