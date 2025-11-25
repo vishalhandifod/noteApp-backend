@@ -30,7 +30,6 @@
     "drizzle-orm": "^0.44.7",
     "express": "^5.1.0",
     "express-rate-limit": "^8.2.1",
-    "google": "^2.1.0",
     "google-auth-library": "^10.5.0",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
